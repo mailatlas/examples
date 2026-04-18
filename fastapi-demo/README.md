@@ -9,7 +9,7 @@ local exploration, not production deployment.
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install "mailatlas[api]"
+python -m pip install mailatlas fastapi uvicorn python-dotenv
 ```
 
 ## Run

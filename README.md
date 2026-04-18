@@ -14,7 +14,7 @@ Install MailAtlas from PyPI:
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install "mailatlas[api]"
+python -m pip install mailatlas
 ```
 
 Clone the sample data repository next to this repository:
@@ -46,3 +46,9 @@ python -m pip install -e /path/to/mailatlas
 ```
 
 Then run the example normally.
+
+The FastAPI demo also needs:
+
+```bash
+python -m pip install fastapi uvicorn python-dotenv
+```
