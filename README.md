@@ -34,6 +34,7 @@ export MAILATLAS_SAMPLE_DATA_DIR=/path/to/sample-data
 | Directory | Purpose |
 | --- | --- |
 | `cli-ingest/` | Ingest a synthetic `.eml` fixture and export JSON, HTML, and PDF artifacts. |
+| `gmail-oauth-send/` | Authorize Gmail API sending with OAuth and send a retry-safe test email. |
 | `python-api/` | Parse a synthetic `.eml` fixture through the Python API. |
 | `fastapi-demo/` | Minimal FastAPI wrapper around the MailAtlas parsing and storage API. |
 
