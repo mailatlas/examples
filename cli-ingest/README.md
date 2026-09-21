@@ -10,11 +10,19 @@ and PDF artifacts.
 ```
 
 By default, the script expects the sample data repository at `../sample-data`.
+Each run writes to a new temporary directory. Pass a second argument to choose a new output path;
+the script refuses to overwrite an existing path.
 
 Override the fixture path directly:
 
 ```bash
 ./demo_cli.sh /path/to/atlas-inline-chart.eml
+```
+
+Choose the output path explicitly:
+
+```bash
+./demo_cli.sh /path/to/atlas-inline-chart.eml /tmp/mailatlas-cli-example-output
 ```
 
 Or set the sample data directory:

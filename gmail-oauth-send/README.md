@@ -87,4 +87,6 @@ You can also revoke the app's access from your Google Account security settings.
 
 - Do not commit OAuth client secrets, access tokens, refresh tokens, or token files.
 - MailAtlas does not write Gmail tokens to `store.db`, raw snapshots, logs, or JSON send results.
-- Gmail API sends currently do not support BCC in MailAtlas. Use SMTP or Cloudflare for BCC tests.
+- Gmail API sends support BCC. MailAtlas includes BCC recipients in the provider-only Gmail payload,
+  omits the `Bcc` header from the local raw MIME snapshot, and keeps BCC metadata in the local
+  SQLite sent-message record.

@@ -1,11 +1,12 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
 set -euo pipefail
 
-ROOT="${0:A:h:h}"
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd -- "$script_dir/.." && pwd)"
 sample_data_dir="${MAILATLAS_SAMPLE_DATA_DIR:-$ROOT/../sample-data}"
 fixture="${1:-$sample_data_dir/fixtures/eml/atlas-inline-chart.eml}"
-demo_root="${2:-/tmp/mailatlas-parser-demo}"
+demo_root="${2:-}"
 python_bin="${MAILATLAS_PYTHON:-}"
 
 if [[ -z "$python_bin" && -x "$ROOT/.venv/bin/python" ]]; then
@@ -27,8 +28,14 @@ if [[ ! -f "$fixture" ]]; then
   exit 1
 fi
 
-rm -rf "$demo_root"
-mkdir -p "$demo_root"
+if [[ -z "$demo_root" ]]; then
+  demo_root="$(mktemp -d "${TMPDIR:-/tmp}/mailatlas-parser-demo.XXXXXX")"
+elif [[ -e "$demo_root" ]]; then
+  echo "Demo output path already exists; choose a new path: $demo_root" >&2
+  exit 1
+else
+  mkdir -p "$demo_root"
+fi
 
 "$python_bin" -c '
 import json

@@ -1,8 +1,9 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
 set -euo pipefail
 
-ROOT="${0:A:h:h}"
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd -- "$script_dir/.." && pwd)"
 cli_bin="${MAILATLAS_CLI:-}"
 
 if [[ -z "$cli_bin" && -x "$ROOT/.venv/bin/mailatlas" ]]; then

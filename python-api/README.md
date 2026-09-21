@@ -10,11 +10,19 @@ document snapshot to a temporary directory.
 ```
 
 By default, the script expects the sample data repository at `../sample-data`.
+Each run writes to a new temporary directory. Pass a second argument to choose a new output path;
+the script refuses to overwrite an existing path.
 
 Override the fixture path directly:
 
 ```bash
 ./demo_parser_api.sh /path/to/atlas-inline-chart.eml
+```
+
+Choose the output path explicitly:
+
+```bash
+./demo_parser_api.sh /path/to/atlas-inline-chart.eml /tmp/mailatlas-python-example-output
 ```
 
 Or set the sample data directory:

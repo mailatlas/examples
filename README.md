@@ -53,3 +53,7 @@ The FastAPI demo also needs:
 ```bash
 python -m pip install fastapi uvicorn python-dotenv
 ```
+
+## License
+
+These examples are available under the [MIT License](LICENSE).
